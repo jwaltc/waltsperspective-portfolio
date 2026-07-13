@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Walt — freelance short-form video editor based in Washington DC. TikTok, Reels, YouTube Shorts, talking-head, podcast content." />
+  <title>Walt — Video Editor</title>
+  <link rel="canonical" href="https://waltsperspective.univer.se/" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
+
+  <!-- Open Graph / social preview (iMessage, Slack, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Walt's Perspective — Short-Form Video Editor" />
+  <meta property="og:description" content="Freelance short-form video editor based in Washington DC. TikTok, Reels, YouTube Shorts, talking-head, podcast content." />
+  <meta property="og:url" content="https://waltsperspective.univer.se/" />
+  <meta property="og:image" content="https://waltsperspective.univer.se/assets/photos/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Walt's Perspective — Short-Form Video Editor" />
+  <meta name="twitter:description" content="Freelance short-form video editor based in Washington DC. TikTok, Reels, YouTube Shorts, talking-head, podcast content." />
+  <meta name="twitter:image" content="https://waltsperspective.univer.se/assets/photos/og-image.jpg" />
+
+  <!-- Fonts: Cormorant (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css?v=14" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAV
+       ============================================================ -->
+  <header class="nav" role="banner">
+    <nav class="nav__inner" aria-label="Primary navigation">
+      <a href="#hero" class="nav__logo" aria-label="Walt — home">Walt</a>
+
+      <!-- Desktop links — order matches section order -->
+      <ul class="nav__links" role="list">
+        <li><a href="#work"         class="nav__link" data-section="work">Commissions</a></li>
+        <li><a href="#personal"     class="nav__link" data-section="personal">Originals</a></li>
+        <li><a href="#testimonials" class="nav__link" data-section="testimonials">Testimonials</a></li>
+        <li><a href="#about"        class="nav__link" data-section="about">About</a></li>
+        <li><a href="#services"     class="nav__link" data-section="services">Services</a></li>
+        <li><a href="#contact"      class="nav__link" data-section="contact">Contact</a></li>
+      </ul>
+
+      <!-- Mobile hamburger -->
+      <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile menu overlay -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <ul class="mobile-menu__links" role="list">
+        <li><a href="#work"         class="mobile-menu__link">Commissions</a></li>
+        <li><a href="#personal"     class="mobile-menu__link">Originals</a></li>
+        <li><a href="#testimonials" class="mobile-menu__link">Testimonials</a></li>
+        <li><a href="#about"        class="mobile-menu__link">About</a></li>
+        <li><a href="#services"     class="mobile-menu__link">Services</a></li>
+        <li><a href="#contact"      class="mobile-menu__link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO — full-screen, scroll-scrubbed video
+         ============================================================ -->
+    <section id="hero" class="hero" aria-label="Hero">
+
+      <!-- Scroll-scrubbed image sequence — tree shot -->
+      <!-- JS maps scrollPosition → frame index, draws to canvas -->
+      <canvas
+        id="hero-canvas"
+        class="hero__video"
+        data-parallax-section="tree"
+        data-frame-path="assets/parallax/tree/frame_"
+        data-frame-count="80"
+        tabindex="-1"
+        aria-hidden="true"
+      ></canvas>
+
+      <!-- Dark cinematic vignette over video -->
+      <div class="hero__vignette" aria-hidden="true"></div>
+
+      <!-- Faded background letter -->
+      <span class="hero__bg-letter" aria-hidden="true">W</span>
+
+      <div class="hero__content">
+        <h1 class="hero__name hero-stagger-1">Walt's Perspective</h1>
+        <p class="hero__tagline hero-stagger-2">Truth through deduction</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         WORK — portfolio grid
+         ============================================================ -->
+    <section id="work" class="work section" aria-label="Commissions">
+      <div class="work__inner container">
+        <h2 class="portfolio-group__label section-label reveal">Commissions</h2>
+        <!-- Featured row — the three strongest client pieces -->
+        <div class="portfolio__grid portfolio__grid--three">
+
+          <!-- Timothy — Digital Living Ep. 1 -->
+          <article class="portfolio-card reveal"
+            data-video-src="assets/client-work/timothy-realestate/timothy-digital-living-ep1.mp4"
+            data-aspect="vertical">
+            <div class="portfolio-card__thumb">
+              <video class="portfolio-card__preview" muted playsinline preload="metadata" poster="assets/posters/timothy-digital-living-ep1.jpg?v=2">
+                <source src="assets/client-work/timothy-realestate/timothy-digital-living-ep1.mp4#t=0.5" type="video/mp4" />
+              </video>
+              <button class="portfolio-card__play" aria-label="Play Digital Living Episode 1">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="portfolio-card__meta">
+              <p class="portfolio-card__title">Digital Living · Ep. 1</p>
+              <p class="portfolio-card__tech">Real estate series. Vertical episode. Story-led b-roll.</p>
+            </div>
+          </article>
+
+          <!-- EDM / Shift Thursdays -->
+          <article class="portfolio-card reveal"
+            data-video-src="assets/client-work/edm-promo/shift-thursdays.mp4"
+            data-aspect="vertical">
+            <div class="portfolio-card__thumb">
+              <video class="portfolio-card__preview" muted playsinline preload="metadata" poster="assets/posters/shift-thursdays.jpg">
+                <source src="assets/client-work/edm-promo/shift-thursdays.mp4#t=0.5" type="video/mp4" />
+              </video>
+              <button class="portfolio-card__play" aria-label="Play Shift Thursdays EDM Promo">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="portfolio-card__meta">
+              <p class="portfolio-card__title">Shift Thursdays</p>
+              <p class="portfolio-card__tech">EDM event promo. High-energy cuts. Beat-matched motion.</p>
+            </div>
+          </article>
+
+          <!-- Functional Medicine Center — Podcast Short 01 -->
+          <article class="portfolio-card reveal"
+            data-video-src="assets/client-work/medical-podcast/medical-podcast-01.mp4"
+            data-aspect="vertical">
+            <div class="portfolio-card__thumb">
+              <video class="portfolio-card__preview" muted playsinline preload="metadata" poster="assets/posters/medical-podcast-01.jpg?v=2">
+                <source src="assets/client-work/medical-podcast/medical-podcast-01.mp4#t=31.16" type="video/mp4" />
+              </video>
+              <button class="portfolio-card__play" aria-label="Play Functional Medicine Center Podcast Short 01">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="portfolio-card__meta">
+              <p class="portfolio-card__title">Functional Medicine Center · Podcast Short 01</p>
+              <p class="portfolio-card__tech">Podcast clip. Transcript-led cut. Caption-driven.</p>
+            </div>
+          </article>
+
+        </div><!-- /.portfolio__grid featured -->
+
+        <button class="portfolio-more__toggle reveal" type="button" aria-expanded="false" aria-controls="client-more">
+          Show all commissions (12 more)
+        </button>
+
+        <!-- Collapsed by default; toggled by the button above -->
+        <div class="portfolio-more" id="client-more" hidden>
+
+        <!-- Wide 16:9 pieces — one clean row of three -->
+        <div class="portfolio__grid portfolio__grid--three">
+
+          <!-- Irish Pub -->
+          <article class="portfolio-card reveal"
+            data-video-src="assets/client-work/irish-pub/irish-pub-promo.mp4"
+            data-aspect="horizontal">
+            <div class="portfolio-card__thumb portfolio-card__thumb--wide">
+              <video class="portfolio-card__preview" muted playsinline preload="metadata" poster="assets/posters/irish-pub-promo.jpg">
+                <source src="assets/client-work/irish-pub/irish-pub-promo.mp4#t=0.5" type="video/mp4" />
+              </video>
+              <button class="portfolio-card__play" aria-label="Play Irish Pub Promo">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="portfolio-card__meta">
+              <p class="portfolio-card__title">Irish Pub Promo</p>
+              <p class="portfolio-card__tech">Location promo. Horizontal. Atmosphere over cuts.</p>
+            </div>
+          </article>
+
+          <!-- Sorority Recruitment Promo, Vol. 1 -->
+          <article class="portfolio-card reveal"
+            data-video-src="assets/client-work/sorority-recruitment/aoii-recruitment-2020.mp4"
+            data-aspect="horizontal">
+            <div class="portfolio-card__thumb portfolio-card__thumb--wide">
+              <video class="portfolio-card__preview" muted playsinline preload="metadata" poster="assets/posters/aoii-recruitment-2020.jpg?v=2">
+                <source src="assets/client-work/sorority-recruitment/aoii-recruitment-2020.mp4#t=3.0" type="video/mp4" />
+              </video>
+              <button class="portfolio-card__play" aria-label="Play Sorority Recruitment Promo, Vol. 1">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="portfolio-card__meta">
+              <p class="portfolio-card__title">Sorority Recruitment Promo, Vol. 1</p>
+              <p class="portfolio-card__tech">Recruitment film. Music-driven montage. Campus energy.</p>
+            </div>
+          </article>
+
+          <!-- Sorority Recruitment Promo, Vol. 2 -->
+          <article class="portfolio-card reveal"
+            data-video-src="assets/client-work/sorority-recruitment/aoii-recruitment-2021.mp4"
+            data-aspect="horizontal">
+            <div class="portfolio-card__thumb portfolio-card__thumb--wide">
+              <video class="portfolio-card__preview" muted playsinline preload="metadata" poster="assets/posters/aoii-recruitment-2021.jpg">
+                <source src="assets/client-work/sorority-recruitment/aoii-recruitment-2021.mp4#t=0.5" type="video/mp4" />
+              </video>
+              <button class="portfolio-card__play" aria-label="Play Sorority Recruitment Promo, Vol. 2">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="portfolio-card__meta">
+              <p class="portfolio-card__title">Sorority Recruitment Promo, Vol. 2</p>
+              <p class="portfolio-card__tech">Recruitment film. Rhythm-cut sequences. Widescreen.</p>
+            </div>
+          </article>
+
+        </div><!-- /.portfolio__grid wide-pair -->
+
+        <div class="portfolio__grid portfolio__grid--three">
+
+          <!-- Sam — Agency Structure -->
+          <article class="portfolio-card reveal"
+            data-video-src="assets/client-work/sam-business/sam-agency-structure.mp4"
+            data-aspect="vertical">
+            <div class="portfolio-card__thumb">
+              <video class="portfolio-card__preview" muted playsinline preload="metadata" poster="assets/posters/sam-agency-structure.jpg?v=2">
+                <source src="assets/client-work/sam-business/sam-agency-structure.mp4#t=2.5" type="video/mp4" />
+              </video>
+              <button class="portfolio-card__play" aria-label="Play Sam — Agency Structure">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="portfolio-card__meta">
+              <p class="portfolio-card__title">Agency Structure</p>
+              <p class="portfolio-card__tech">Talking-head. Transcript-led. Hook in 3s. FCP.</p>
+            </div>
+          </article>
+
+          <!-- Nebius Academy — Math Problem -->
+          <article class="portfolio-card reveal"
+            data-video-src="assets/client-work/nebius-academy/nebius-math-problem.mp4"
+            data-aspect="vertical">
+            <div class="portfolio-card__thumb">
+              <video class="portfolio-card__preview" muted playsinline preload="metadata" poster="assets/posters/nebius-math-problem.jpg?v=2">
+                <source src="assets/client-work/nebius-academy/nebius-math-problem.mp4#t=3.0" type="video/mp4" />
+              </video>
+              <button class="portfolio-card__play" aria-label="Play Nebius Academy — Math Problem">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="portfolio-card__meta">
+              <p class="portfolio-card__title">Nebius Academy · Math Problem</p>
+              <p class="portfolio-card__tech">My own AI education series. Me on camera. Hook-led.</p>
+            </div>
+          </article>
+
+          <!-- Functional Medicine Center — Podcast Short 02 -->
+          <article class="portfolio-card reveal"
+            data-video-src="assets/client-work/medical-podcast/medical-podcast-02.mp4"
+            data-aspect="vertical">
+            <div class="portfolio-card__thumb">
+              <video class="portfolio-card__preview" muted playsinline preload="metadata" poster="assets/posters/medical-podcast-02.jpg?v=2">
+                <source src="assets/client-work/medical-podcast/medical-podcast-02.mp4#t=50.03" type="video/mp4" />
+              </video>
+              <button class="portfolio-card__play" aria-label="Play Functional Medicine Center Podcast Short 02">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="portfolio-card__meta">
+              <p class="portfolio-card__title">Functional Medicine Center · Podcast Short 02</p>
+              <p class="portfolio-card__tech">Podcast clip. Hook-first. Tight pacing.</p>
+            </div>
+          </article>
+
+          <!-- Todd — Spiritual Speaking -->
+          <article class="portfolio-card reveal"
+            data-video-src="assets/client-work/todd-spiritual/todd-spiritual-speaking.mp4"
+            data-aspect="vertical">
+            <div class="portfolio-card__thumb">
+              <video class="portfolio-card__preview" muted playsinline preload="metadata" poster="assets/posters/todd-spiritual-speaking.jpg?v=2">
+                <source src="assets/client-work/todd-spiritual/todd-spiritual-speaking.mp4#t=13.75" type="video/mp4" />
+              </video>
+              <button class="portfolio-card__play" aria-label="Play Todd — Spiritual Content">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="portfolio-card__meta">
+              <p class="portfolio-card__title">Spiritual Creator</p>
+              <p class="portfolio-card__tech">Long-form clip. Pacing-driven. Cinematic feel.</p>
+            </div>
+          </article>
+
+          <!-- Todd — AI Faceless Travel -->
+          <article class="portfolio-card reveal"
+            data-video-src="assets/client-work/todd-spiritual/ai-faceless-travel.mp4"
+            data-aspect="vertical">
+            <div class="portfolio-card__thumb">
+              <video class="portfolio-card__preview" muted playsinline preload="metadata" poster="assets/posters/ai-faceless-travel.jpg">
+                <source src="assets/client-work/todd-spiritual/ai-faceless-travel.mp4#t=0.5" type="video/mp4" />
+              </video>
+              <button class="portfolio-card__play" aria-label="Play AI Faceless Travel">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="portfolio-card__meta">
+              <p class="portfolio-card__title">AI Faceless Travel</p>
+              <p class="portfolio-card__tech">Faceless format. AI narration. Text motion. CapCut + FCP.</p>
+            </div>
+          </article>
+
+          <!-- Nebius Academy — AI Habit -->
+          <article class="portfolio-card reveal"
+            data-video-src="assets/client-work/nebius-academy/nebius-ai-habit.mp4"
+            data-aspect="vertical">
+            <div class="portfolio-card__thumb">
+              <video class="portfolio-card__preview" muted playsinline preload="metadata" poster="assets/posters/nebius-ai-habit.jpg?v=2">
+                <source src="assets/client-work/nebius-academy/nebius-ai-habit.mp4#t=2.5" type="video/mp4" />
+              </video>
+              <button class="portfolio-card__play" aria-label="Play Nebius Academy — AI Habit">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="portfolio-card__meta">
+              <p class="portfolio-card__title">Nebius Academy · AI Habit</p>
+              <p class="portfolio-card__tech">My own AI education series. Me on camera. Self-produced.</p>
+            </div>
+          </article>
+
+          <!-- Nebius Academy — AI Jobs -->
+          <article class="portfolio-card reveal"
+            data-video-src="assets/client-work/nebius-academy/nebius-ai-jobs.mp4"
+            data-aspect="vertical">
+            <div class="portfolio-card__thumb">
+              <video class="portfolio-card__preview" muted playsinline preload="metadata" poster="assets/posters/nebius-ai-jobs.jpg">
+                <source src="assets/client-work/nebius-academy/nebius-ai-jobs.mp4#t=0.5" type="video/mp4" />
+              </video>
+              <button class="portfolio-card__play" aria-label="Play Nebius Academy — AI Jobs">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="portfolio-card__meta">
+              <p class="portfolio-card__title">Nebius Academy · AI Jobs</p>
+              <p class="portfolio-card__tech">My own AI education series. Me on camera. Tight pacing.</p>
+            </div>
+          </article>
+
+          <!-- Matt — Faseat 01 -->
+          <article class="portfolio-card reveal"
+            data-video-src="assets/client-work/matt/faseat-01.mp4"
+            data-aspect="vertical">
+            <div class="portfolio-card__thumb">
+              <video class="portfolio-card__preview" muted playsinline preload="metadata" poster="assets/posters/faseat-01.jpg?v=2">
+                <source src="assets/client-work/matt/faseat-01.mp4#t=3.0" type="video/mp4" />
+              </video>
+              <button class="portfolio-card__play" aria-label="Play Faseat Brand Short">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="portfolio-card__meta">
+              <p class="portfolio-card__title">Faseat · Brand Short</p>
+              <p class="portfolio-card__tech">Comedy short for a brand. Hook-led. Clean b-roll sequencing.</p>
+            </div>
+          </article>
+
+          <!-- Matt — Faseat 02 -->
+          <article class="portfolio-card reveal"
+            data-video-src="assets/client-work/matt/faseat-02.mp4"
+            data-aspect="vertical">
+            <div class="portfolio-card__thumb">
+              <video class="portfolio-card__preview" muted playsinline preload="metadata" poster="assets/posters/faseat-02.jpg?v=2">
+                <source src="assets/client-work/matt/faseat-02.mp4#t=3.0" type="video/mp4" />
+              </video>
+              <button class="portfolio-card__play" aria-label="Play Faseat Short 02">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="portfolio-card__meta">
+              <p class="portfolio-card__title">Faseat · Cut 02</p>
+              <p class="portfolio-card__tech">Brand comedy. Tight pacing. Minimal typography.</p>
+            </div>
+          </article>
+
+        </div><!-- /.portfolio__grid three -->
+
+        </div><!-- /.portfolio-more -->
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         AMBIENT DIVIDER 1 — scroll-scrubbed drone shot
+         (separates Client Work from Personal Work)
+         ============================================================ -->
+    <div class="ambient-strip ambient-strip--1" aria-hidden="true">
+      <!-- Scroll-scrubbed image sequence — drone shot -->
+      <canvas
+        class="ambient-strip__video"
+        id="ambient-canvas-1"
+        data-parallax-section="drone"
+        data-frame-path="assets/parallax/drone/frame_"
+        data-frame-count="119"
+        data-scrub-start="0.15"
+        data-scrub-end="0.8"
+        data-scrub-ease="1.7"
+        tabindex="-1"
+      ></canvas>
+      <div class="ambient-strip__overlay"></div>
+    </div>
+
+    <!-- ============================================================
+         PERSONAL WORK
+         ============================================================ -->
+    <section id="personal" class="work section" aria-label="Originals">
+      <div class="work__inner container">
+        <h2 class="portfolio-group__label section-label reveal">Originals</h2>
+        <div class="portfolio__grid portfolio__grid--four">
+
+          <!-- Lenses of Perception -->
+          <article class="portfolio-card reveal"
+            data-video-src="assets/personal-work/edm-personal/lenses-of-perception.mp4"
+            data-aspect="vertical">
+            <div class="portfolio-card__thumb">
+              <video class="portfolio-card__preview" muted playsinline preload="metadata" poster="assets/posters/lenses-of-perception.jpg">
+                <source src="assets/personal-work/edm-personal/lenses-of-perception.mp4#t=0.5" type="video/mp4" />
+              </video>
+              <button class="portfolio-card__play" aria-label="Play Lenses of Perception">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="portfolio-card__meta">
+              <p class="portfolio-card__title">Lenses of Perception</p>
+              <p class="portfolio-card__tech">Experimental. Layered visuals. Sound-led cut.</p>
+            </div>
+          </article>
+
+          <!-- Labels -->
+          <article class="portfolio-card reveal"
+            data-video-src="assets/personal-work/edm-personal/labels.mp4"
+            data-aspect="vertical">
+            <div class="portfolio-card__thumb">
+              <video class="portfolio-card__preview" muted playsinline preload="metadata" poster="assets/posters/labels.jpg">
+                <source src="assets/personal-work/edm-personal/labels.mp4#t=0.5" type="video/mp4" />
+              </video>
+              <button class="portfolio-card__play" aria-label="Play Labels">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="portfolio-card__meta">
+              <p class="portfolio-card__title">Labels</p>
+              <p class="portfolio-card__tech">Vertical short. Typography-driven. 9:16.</p>
+            </div>
+          </article>
+
+          <!-- Summer 19 -->
+          <article class="portfolio-card reveal"
+            data-video-src="assets/personal-work/edm-personal/summer-19.mp4"
+            data-aspect="vertical">
+            <div class="portfolio-card__thumb">
+              <video class="portfolio-card__preview" muted playsinline preload="metadata" poster="assets/posters/summer-19.jpg">
+                <source src="assets/personal-work/edm-personal/summer-19.mp4#t=0.5" type="video/mp4" />
+              </video>
+              <button class="portfolio-card__play" aria-label="Play Summer 19">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="portfolio-card__meta">
+              <p class="portfolio-card__title">Summer 19</p>
+              <p class="portfolio-card__tech">Summer montage. Nostalgic pacing.</p>
+            </div>
+          </article>
+
+          <!-- A Stroll Through Mason -->
+          <article class="portfolio-card reveal"
+            data-video-src="assets/personal-work/edm-personal/a-stroll-through-mason.mp4"
+            data-aspect="vertical">
+            <div class="portfolio-card__thumb">
+              <video class="portfolio-card__preview" muted playsinline preload="metadata" poster="assets/posters/a-stroll-through-mason.jpg">
+                <source src="assets/personal-work/edm-personal/a-stroll-through-mason.mp4#t=0.5" type="video/mp4" />
+              </video>
+              <button class="portfolio-card__play" aria-label="Play A Stroll Through Mason">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+            <div class="portfolio-card__meta">
+              <p class="portfolio-card__title">A Stroll Through Mason</p>
+              <p class="portfolio-card__tech">Micro-doc. Ambient walk. 4:5.</p>
+            </div>
+          </article>
+
+        </div><!-- /.portfolio__grid -->
+      </div>
+    </section>
+
+    <!-- Video lightbox (hidden until triggered) -->
+    <div class="lightbox" id="lightbox" aria-modal="true" role="dialog" aria-label="Video player" hidden>
+      <button class="lightbox__close" aria-label="Close video">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+        </svg>
+      </button>
+      <div class="lightbox__content">
+        <video class="lightbox__video" controls playsinline>
+          <source src="" type="video/mp4" />
+        </video>
+        <button class="lightbox__fullscreen" aria-label="Enter fullscreen">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         TESTIMONIALS
+         ============================================================ -->
+    <section id="testimonials" class="testimonials section" aria-label="Testimonials">
+      <div class="testimonials__inner container">
+        <h2 class="section-label reveal">Testimonials</h2>
+
+        <div class="testimonials__grid">
+
+          <blockquote class="testimonial-card reveal">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <span aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="testimonial-card__quote">Walt handled filming, b-roll, and script organization for our documentary. Strong instinct for storytelling and easy to work with throughout the project. Would absolutely recommend.</p>
+            <div class="testimonial-card__tags">
+              <span class="testimonial-card__tag">Solution Oriented</span>
+              <span class="testimonial-card__tag">Detail Oriented</span>
+              <span class="testimonial-card__tag">Accountable for Outcomes</span>
+            </div>
+            <footer class="testimonial-card__attribution">
+              <span class="testimonial-card__name">— Stephen Carney</span>
+              <span class="testimonial-card__role">Documentary · On-Location Filming + Editing · Apr–Jun 2026 · Upwork</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card reveal">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <span aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="testimonial-card__quote">Does good work and stays in constant contact.</p>
+            <div class="testimonial-card__tags">
+              <span class="testimonial-card__tag">Solution Oriented</span>
+              <span class="testimonial-card__tag">Clear Communicator</span>
+              <span class="testimonial-card__tag">Accountable for Outcomes</span>
+            </div>
+            <footer class="testimonial-card__attribution">
+              <span class="testimonial-card__name">— Timothy Trujillo</span>
+              <span class="testimonial-card__role">Digital Living · Real Estate Series · Upwork</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card reveal">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <span aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="testimonial-card__quote">Crushed it! Gave us what we needed in 48 hours. Would 10/10 hire again.</p>
+            <div class="testimonial-card__tags">
+              <span class="testimonial-card__tag">Reliable</span>
+              <span class="testimonial-card__tag">Detail Oriented</span>
+              <span class="testimonial-card__tag">Clear Communicator</span>
+            </div>
+            <footer class="testimonial-card__attribution">
+              <span class="testimonial-card__name">— Sean Schmidt</span>
+              <span class="testimonial-card__role">Reels / TikTok · Feb 2026 · Upwork</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card reveal">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <span aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="testimonial-card__quote">Great at following our brief and delivered on time.</p>
+            <div class="testimonial-card__tags">
+              <span class="testimonial-card__tag">Reliable</span>
+              <span class="testimonial-card__tag">Committed to Quality</span>
+              <span class="testimonial-card__tag">Solution Oriented</span>
+            </div>
+            <footer class="testimonial-card__attribution">
+              <span class="testimonial-card__name">— Sam Shrimpton</span>
+              <span class="testimonial-card__role">Ongoing Social Content · Mar–Apr 2026 · Upwork</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card reveal">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <span aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="testimonial-card__quote">Walt is a kind and creative person. Wonderful to work with!</p>
+            <div class="testimonial-card__tags">
+              <span class="testimonial-card__tag">Collaborative</span>
+              <span class="testimonial-card__tag">Solution Oriented</span>
+              <span class="testimonial-card__tag">Clear Communicator</span>
+            </div>
+            <footer class="testimonial-card__attribution">
+              <span class="testimonial-card__name">— Matthew Bucheit</span>
+              <span class="testimonial-card__role">Shorts + Long-Form · Mar 2026 · Upwork</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card reveal">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <span aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="testimonial-card__quote">Walt completed the job successfully and was easy to communicate with. Thank you.</p>
+            <div class="testimonial-card__tags">
+              <span class="testimonial-card__tag">Committed to Quality</span>
+              <span class="testimonial-card__tag">Clear Communicator</span>
+            </div>
+            <footer class="testimonial-card__attribution">
+              <span class="testimonial-card__name">— Sophie Chen</span>
+              <span class="testimonial-card__role">Long-Term Reels Editing · Apr–May 2026 · Upwork</span>
+            </footer>
+          </blockquote>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT
+         ============================================================ -->
+    <section id="about" class="about section" aria-label="About">
+      <div class="about__inner about__inner--split container">
+        <div class="about__text reveal">
+          <h2 class="section-label">About</h2>
+          <p class="about__philosophy">
+            The first three seconds decide whether anyone watches the rest. I build every edit backward from that.
+          </p>
+          <p class="about__body">
+            Before I touch a timeline, I read the full transcript and find the moments that actually hold attention. The strongest hook, the honest pause, the line worth clipping. Everything else gets cut. What's left is the video your footage was trying to be.
+          </p>
+          <p class="about__body">
+            I work around your timeline, ask sharp questions before I start instead of guessing, and treat revision notes as something to prevent, not process. Final Cut Pro and CapCut. Washington DC.
+          </p>
+        </div>
+        <div class="about__photo reveal">
+          <img src="assets/photos/about-workstation.jpg" alt="Walt editing at his workstation" loading="lazy" width="1400" height="1050" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         AMBIENT DIVIDER 2 — scroll-scrubbed (between About & Services)
+         ============================================================ -->
+    <div class="ambient-strip ambient-strip--2" aria-hidden="true">
+      <!-- Scroll-scrubbed image sequence — boomerang shot -->
+      <canvas
+        class="ambient-strip__video"
+        id="ambient-canvas-2"
+        data-parallax-section="far-and-wide"
+        data-frame-path="assets/parallax/far-and-wide/frame_"
+        data-frame-count="101"
+        data-scrub-start="0.15"
+        data-scrub-end="0.85"
+        data-scrub-ease="2.2"
+        tabindex="-1"
+      ></canvas>
+      <div class="ambient-strip__overlay"></div>
+    </div>
+
+    <!-- ============================================================
+         SERVICES
+         ============================================================ -->
+    <section id="services" class="services section" aria-label="Services">
+      <div class="services__inner container">
+        <h2 class="section-label reveal">Services</h2>
+
+        <div class="services__grid">
+
+          <div class="service-card reveal">
+            <p class="service-card__name">Short-Form Editing</p>
+            <p class="service-card__desc">TikTok, Reels, YouTube Shorts. Hook-first structure, tight pacing. Delivered ready to post.</p>
+          </div>
+
+          <div class="service-card reveal">
+            <p class="service-card__name">Podcast &amp; Interview Clips</p>
+            <p class="service-card__desc">Transcript-led cuts that find the strongest moments. Framed, captioned, and built to stop the scroll.</p>
+          </div>
+
+          <div class="service-card reveal">
+            <p class="service-card__name">Long-Form &amp; YouTube</p>
+            <p class="service-card__desc">Full episodes, docs, and YouTube videos. Structure-first editing that holds attention past the first minute.</p>
+          </div>
+
+          <div class="service-card reveal">
+            <p class="service-card__name">Brand &amp; Promo</p>
+            <p class="service-card__desc">Location shoots, event recaps, product launches. Horizontal or vertical.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT / CTA
+         ============================================================ -->
+    <section id="contact" class="contact section" aria-label="Contact">
+      <div class="contact__inner container reveal">
+        <img class="contact__portrait" src="assets/photos/contact-portrait.jpg" alt="Walt" loading="lazy" width="500" height="500" />
+        <p class="contact__cta">Let's collaborate</p>
+
+        <!-- Consultation / project inquiry form.
+             Posts via formsubmit.co — first live submission emails Walt
+             an activation link; the form works after he clicks it. -->
+        <form class="contact-form" id="contact-form" action="https://formsubmit.co/waltcoughlan36@gmail.com" method="POST" novalidate>
+          <input type="text" name="_honey" class="contact-form__honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+          <div class="contact-form__row">
+            <label class="contact-form__field">
+              <span class="contact-form__label">Name</span>
+              <input class="contact-form__input" type="text" name="name" required autocomplete="name" />
+            </label>
+            <label class="contact-form__field">
+              <span class="contact-form__label">Email</span>
+              <input class="contact-form__input" type="email" name="email" required autocomplete="email" />
+            </label>
+          </div>
+
+          <label class="contact-form__field">
+            <span class="contact-form__label">What do you need?</span>
+            <select class="contact-form__input" name="need">
+              <option>Editing</option>
+              <option>Filming</option>
+              <option>Consultation / advice</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+
+          <label class="contact-form__field">
+            <span class="contact-form__label">The project, the problem, the deadline. Whatever you've got.</span>
+            <textarea class="contact-form__input contact-form__textarea" name="message" rows="5" required></textarea>
+          </label>
+
+          <button class="contact-form__submit" type="submit">Send it</button>
+          <p class="contact-form__status" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="contact__reach">
+          <a href="mailto:waltcoughlan36@gmail.com" class="contact__email">waltcoughlan36@gmail.com</a>
+          <a href="tel:+15715878852" class="contact__phone">(571) 587-8852</a>
+        </div>
+
+        <p class="contact__location">Based in Washington DC</p>
+
+        <div class="contact__links">
+          <a
+            href="https://www.upwork.com/freelancers/~0149e3aab5593dfb93"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact__link"
+          >Upwork</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p class="site-footer__text">© <span id="year"></span> Walt. All rights reserved.</p>
+    <div class="site-footer__links">
+      <a href="https://www.upwork.com/freelancers/~0149e3aab5593dfb93" target="_blank" rel="noopener noreferrer" class="site-footer__link">Upwork</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=3"></script>
+</body>
+</html>

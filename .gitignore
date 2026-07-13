@@ -1,0 +1,10 @@
+.DS_Store
+files.zip
+.claude/settings.local.json
+
+# Dev-only source footage for parallax re-extraction — not used live
+assets/ambient-loops/
+
+# Unreferenced/unidentified files
+assets/52592AB7CBEEC39D841FE5C327C9976B.mov
+assets/client-work/old-portfolio/
