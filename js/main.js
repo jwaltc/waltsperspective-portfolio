@@ -11,7 +11,8 @@
        video.currentTime = scrollProgress × video.duration
        The video NEVER autoplays. It only moves because the
        user is scrolling.
-   8.  Footer year
+   8.  Lazy-load portfolio preview videos
+   9.  Footer year
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -457,6 +458,41 @@ document.addEventListener('DOMContentLoaded', () => {
           submitBtn.disabled = false;
         });
     });
+  }
+
+
+  /* ----------------------------------------------------------
+     8. LAZY-LOAD PORTFOLIO PREVIEW VIDEOS
+     Each <video class="portfolio-card__preview"> has preload="none"
+     and its <source> carries the real URL in data-src instead of
+     src, so nothing is requested on page load — only the poster
+     shows. When a card scrolls within ~200px of the viewport, its
+     source src gets set and .load() is called once. The observer
+     then stops watching that video, so scrolling it out and back
+     in never re-triggers a load.
+  ---------------------------------------------------------- */
+  const previewVideos = document.querySelectorAll('.portfolio-card__preview');
+
+  if (previewVideos.length) {
+    const videoObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const video = entry.target;
+          const source = video.querySelector('source[data-src]');
+          if (source) {
+            source.src = source.dataset.src;
+            delete source.dataset.src;
+            video.load();
+          }
+          observer.unobserve(video);
+        });
+      },
+      { rootMargin: '200px 0px 200px 0px' }
+    );
+
+    previewVideos.forEach((video) => videoObserver.observe(video));
   }
 
 
