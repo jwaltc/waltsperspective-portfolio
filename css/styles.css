@@ -123,19 +123,6 @@ button {
   margin-bottom: 14px;
 }
 
-/* Commissions heading pairs with a one-line intro below it — same
-   tightened kicker spacing as About. */
-#work .section-label {
-  margin-bottom: 10px;
-}
-
-.work__intro {
-  font-size: clamp(15px, 1.6vw, 17px);
-  color: var(--text-muted);
-  max-width: 520px;
-  margin-bottom: clamp(24px, 4vw, 44px);
-}
-
 /* ============================================================
    SCROLL REVEAL — elements start hidden, JS adds .is-visible
    ============================================================ */
