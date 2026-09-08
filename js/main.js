@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * Preload all frame images for a parallax section.
    * Returns a Promise that resolves to an array of Image objects.
    */
-  const preloadFrames = (pathPrefix, count) => {
+  const preloadFrames = (pathPrefix, count, onFirstFrame) => {
     const frames = [];
     const promises = [];
 
@@ -225,7 +225,10 @@ document.addEventListener('DOMContentLoaded', () => {
       img.src = `${pathPrefix}${idx}.jpg`;
 
       const p = new Promise((resolve) => {
-        img.onload = () => resolve();
+        img.onload = () => {
+          if (i === 0 && onFirstFrame) onFirstFrame(img);
+          resolve();
+        };
         img.onerror = () => resolve(); // don't block on missing frames
       });
 
@@ -330,13 +333,15 @@ document.addEventListener('DOMContentLoaded', () => {
       };
       parallaxSections.push(section);
 
-      // Preload frames, then draw initial frame
-      return preloadFrames(framePath, frameCount).then(frames => {
-        section.frames = frames;
-        // Draw the first frame immediately as a "poster"
-        if (frames[0] && frames[0].naturalWidth) {
-          drawFrameCover(ctx, frames[0], w, h);
+      // Draw frame 0 the moment it loads, then keep loading the rest
+      // in the background so the hero isn't blank while the full
+      // sequence downloads.
+      return preloadFrames(framePath, frameCount, (firstFrame) => {
+        if (firstFrame.naturalWidth) {
+          drawFrameCover(ctx, firstFrame, w, h);
         }
+      }).then(frames => {
+        section.frames = frames;
       });
     });
 
